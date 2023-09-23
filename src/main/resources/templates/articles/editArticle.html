@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formArticle</title>
+</head>
+<body>
+    <h4><a th:href="@{/redact/index}">Accueil</a></h4>
+    <h2>Modifier un article</h2>
+    <form method="post" th:action="@{saveArticle}">
+        <label>Id : </label><span  th:text="${article.idArticle}"></span><br />
+        <input type="hidden" name="id" id="id" th:field="*{article.idArticle}" /><br /><br />
+        <label for="titre">Titre :</label>
+        <input type="text" name="titre" id="titre" th:field="*{article.titre}" /><br /><br />
+        <label for="contenu">Contenu :</label>
+        <textarea cols="=50" rows="4" name="contenu" id="contenu" th:field="*{article.contenu}"></textarea><br />
+        <input type="hidden" name="compte" id="compte" th:field="*{article.compte}" /><br /><br />
+        <input type="checkbox" checked name="public" id="public"  th:field="*{article._public}" />
+        <!--<input type="checkbox" checked name="public" id="public"  th:field="*{article._public}" />-->
+        <label for="public">Publique :</label><br /><br />
+        <button type="submit">Modifier</button>
+    </form>
+</body>
+</html>

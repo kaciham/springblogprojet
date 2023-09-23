@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link  rel="stylesheet" type="text/css" href="index.css">
+    <title>formArticle</title>
+</head>
+<body>
+    <h4><a th:href="@{/redact/index}">Accueil</a></h4>
+    <h2>Créer un article</h2>
+    <form method="post" th:action="@{saveArticle}">
+        <label for="titre">Titre :</label>
+        <input type="text" name="titre" id="titre" th:field="*{article.titre}" /><br />
+        
+        <label for="contenu">Contenu :</label>
+        <input type="text" name="contenu" id="contenu" th:field="*{article.contenu}" /><br />
+
+         <!--<label for="date">Date :</label>
+        <input type="date" name="date" id="date" th:field="*{article.date}" /><br />-->
+
+        <!--<input type="checkbox" checked name="public" id="public"  th:checked="${article._public}" />-->
+        <input type="checkbox" checked name="public" id="public"  th:value="${article._public}" />
+        <label for="public">Publique :</label><br />
+
+        <button type="submit">Publier</button>
+    </form>
+</body>
+</html>
